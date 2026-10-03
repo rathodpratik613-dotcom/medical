@@ -1,0 +1,21 @@
+# Render Configuration for TeleMedicine Platform
+
+# Backend Service (Web Service)
+services:
+  - type: web
+    name: telemedicine-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 5000
+    plan: free
+
+# Frontend Service (Static Site)
+- type: site
+  name: telemedicine-frontend
+  env: static
+  buildCommand: ""
+  publishDir: frontend
+  plan: free
