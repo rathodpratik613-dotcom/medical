@@ -177,6 +177,9 @@ async function loadDoctors() {
         const response = await fetch(`${API_URL}/doctors`);
         const doctors = await response.json();
         
+        // Load specializations for filter
+        loadSpecializations();
+        
         const doctorsList = document.getElementById('doctorsList');
         doctorsList.innerHTML = '';
         
@@ -201,6 +204,88 @@ async function loadDoctors() {
         console.error('Error loading doctors:', error);
         document.getElementById('doctorsList').innerHTML = '<p>Error loading doctors. Please try again later.</p>';
     }
+}
+
+// Load specializations for filter
+async function loadSpecializations() {
+    try {
+        const response = await fetch(`${API_URL}/doctors/specializations`);
+        const specializations = await response.json();
+        
+        const filterSelect = document.getElementById('specializationFilter');
+        filterSelect.innerHTML = '<option value="">All Specializations</option>';
+        
+        specializations.forEach(spec => {
+            const option = document.createElement('option');
+            option.value = spec;
+            option.textContent = spec;
+            filterSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error loading specializations:', error);
+    }
+}
+
+// Search doctors
+async function searchDoctors() {
+    const searchTerm = document.getElementById('doctorSearch').value;
+    const specialization = document.getElementById('specializationFilter').value;
+    
+    try {
+        let url = `${API_URL}/doctors/search`;
+        const params = new URLSearchParams();
+        
+        if (searchTerm) {
+            params.append('q', searchTerm);
+        }
+        if (specialization) {
+            params.append('specialization', specialization);
+        }
+        
+        if (params.toString()) {
+            url += `?${params.toString()}`;
+        }
+        
+        const response = await fetch(url);
+        const doctors = await response.json();
+        
+        const doctorsList = document.getElementById('doctorsList');
+        doctorsList.innerHTML = '';
+        
+        if (doctors.length === 0) {
+            doctorsList.innerHTML = '<p>No doctors found matching your search.</p>';
+            return;
+        }
+        
+        doctors.forEach(doctor => {
+            const card = document.createElement('div');
+            card.className = 'doctor-card';
+            card.innerHTML = `
+                <h3>${doctor.name}</h3>
+                <p class="specialization">${doctor.specialization}</p>
+                <p>Experience: ${doctor.experience_years} years</p>
+                <p>Phone: ${doctor.phone}</p>
+                <button onclick="openConsultationModal(${doctor.id}, '${doctor.name}')" class="btn btn-primary" style="margin-top: 1rem;">Request Consultation</button>
+            `;
+            doctorsList.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error searching doctors:', error);
+        document.getElementById('doctorsList').innerHTML = '<p>Error searching doctors. Please try again.</p>';
+    }
+}
+
+// Handle search on Enter key
+function handleDoctorSearch(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        searchDoctors();
+    }
+}
+
+// Filter doctors by specialization
+function filterDoctors() {
+    searchDoctors();
 }
 
 // Open consultation modal

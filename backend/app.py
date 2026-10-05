@@ -301,6 +301,86 @@ def init_db():
             (4, 'Depsert 50', 'Sertraline 50mg - Depression (Indian brand)', 16.99, 115, 1),
             (5, 'Nise 100', 'Nimesulide 100mg - Pain relief (Indian brand)', 5.99, 140, 1),
             (5, 'Sumo 100', 'Nimesulide 100mg - Pain relief (Indian brand)', 6.49, 135, 1),
+            # More Indian Medicines
+            (1, 'Calpol 500', 'Paracetamol 500mg - Pain relief (Indian brand)', 2.49, 200, 1),
+            (1, 'Crocin Advance', 'Paracetamol 650mg - Pain relief (Indian brand)', 3.99, 180, 1),
+            (1, 'Motin 400', 'Ibuprofen 400mg - Pain relief (Indian brand)', 4.49, 160, 1),
+            (1, 'Brufen 400', 'Ibuprofen 400mg - Pain relief (Indian brand)', 4.99, 150, 1),
+            (1, 'Disprin', 'Aspirin - Pain relief (Indian brand)', 3.49, 190, 1),
+            (2, 'Amoxil 500', 'Amoxicillin 500mg - Antibiotic (Indian brand)', 11.99, 85, 1),
+            (2, 'Moxikind CV', 'Amoxicillin + Clavulanic acid - Antibiotic (Indian brand)', 15.99, 75, 1),
+            (2, 'Taxim 200', 'Cefotaxime 200mg - Antibiotic (Indian brand)', 18.99, 65, 1),
+            (2, 'Ceftum 500', 'Cefuroxime 500mg - Antibiotic (Indian brand)', 20.99, 60, 1),
+            (2, 'Levoflox 500', 'Levofloxacin 500mg - Antibiotic (Indian brand)', 22.99, 55, 1),
+            (3, 'Pan 40', 'Pantoprazole 40mg - Acid reflux (Indian brand)', 9.99, 130, 1),
+            (3, 'Pan D', 'Pantoprazole + Domperidone - Acid reflux (Indian brand)', 12.99, 115, 1),
+            (3, 'Ranitidine 150', 'H2 blocker - Acid reflux (Indian brand)', 5.99, 150, 1),
+            (3, 'Aciloc 150', 'Ranitidine 150mg - Acid reflux (Indian brand)', 6.49, 145, 1),
+            (3, 'Gaviscon', 'Antacid - Acid reflux (Indian brand)', 8.99, 120, 1),
+            (4, 'Glycomet GP2', 'Metformin + Glimepiride - Diabetes (Indian brand)', 21.99, 85, 1),
+            (4, 'Glucophage 500', 'Metformin 500mg - Diabetes (Indian brand)', 14.99, 140, 1),
+            (4, 'Januvia 100', 'Sitagliptin 100mg - Diabetes (Indian brand)', 26.99, 70, 1),
+            (4, 'Galvus Met', 'Vildagliptin + Metformin - Diabetes (Indian brand)', 24.99, 75, 1),
+            (4, 'Trucomet XR', 'Metformin extended release - Diabetes (Indian brand)', 16.99, 100, 1),
+            (5, 'Telma H', 'Telmisartan + Hydrochlorothiazide - BP (Indian brand)', 15.99, 120, 1),
+            (5, 'Telsartan 40', 'Telmisartan 40mg - BP (Indian brand)', 14.99, 125, 1),
+            (5, 'Telma 80', 'Telmisartan 80mg - BP (Indian brand)', 18.99, 110, 1),
+            (5, 'Nusar 40', 'Telmisartan 40mg - BP (Indian brand)', 13.99, 130, 1),
+            (1, 'Amlokind 5', 'Amlodipine 5mg - BP (Indian brand)', 10.99, 140, 1),
+            (1, 'Amlokind AT', 'Amlodipine + Atenolol - BP (Indian brand)', 14.99, 115, 1),
+            (1, 'Amlip 5', 'Amlodipine 5mg - BP (Indian brand)', 11.99, 135, 1),
+            (2, 'Atorva 5', 'Atorvastatin 5mg - Cholesterol (Indian brand)', 14.99, 110, 1),
+            (2, 'Atorva 20', 'Atorvastatin 20mg - Cholesterol (Indian brand)', 19.99, 95, 1),
+            (2, 'Lipvas 10', 'Atorvastatin 10mg - Cholesterol (Indian brand)', 16.99, 105, 1),
+            (2, 'Crestor 10', 'Rosuvastatin 10mg - Cholesterol (Indian brand)', 24.99, 80, 1),
+            (2, 'Storvas 10', 'Atorvastatin 10mg - Cholesterol (Indian brand)', 15.99, 100, 1),
+            (3, 'Deplatt 75', 'Clopidogrel 75mg - Heart (Indian brand)', 15.99, 115, 1),
+            (3, 'Clopitor 75', 'Clopidogrel 75mg - Heart (Indian brand)', 16.99, 110, 1),
+            (3, 'Plavix 75', 'Clopidogrel 75mg - Heart (Indian brand)', 18.99, 95, 1),
+            (3, 'Angised', 'Nitroglycerin - Heart (Indian brand)', 12.99, 85, 1),
+            (4, 'Asthalin 4', 'Salbutamol 4mg - Asthma (Indian brand)', 9.99, 130, 1),
+            (4, 'Asthalin Rotacaps', 'Salbutamol - Asthma (Indian brand)', 11.99, 120, 1),
+            (4, 'Budecort 200', 'Budesonide 200mcg - Asthma (Indian brand)', 15.99, 100, 1),
+            (4, 'Budenase AQ', 'Budesonide nasal spray - Asthma (Indian brand)', 18.99, 90, 1),
+            (5, 'Allegra M', 'Fexofenadine + Montelukast - Allergy (Indian brand)', 14.99, 125, 1),
+            (5, 'Montair 10', 'Montelukast 10mg - Allergy (Indian brand)', 13.99, 130, 1),
+            (5, 'Montair FX', 'Montelukast + Fexofenadine - Allergy (Indian brand)', 16.99, 115, 1),
+            (5, 'Avil 25', 'Pheniramine - Allergy (Indian brand)', 4.99, 150, 1),
+            (1, 'Eltroxin 100mcg', 'Levothyroxine 100mcg - Thyroid (Indian brand)', 14.99, 110, 1),
+            (1, 'Thyrox 50mcg', 'Levothyroxine 50mcg - Thyroid (Indian brand)', 12.99, 120, 1),
+            (1, 'Thyronorm 100mcg', 'Levothyroxine 100mcg - Thyroid (Indian brand)', 13.99, 115, 1),
+            (2, 'Gabantin 300', 'Gabapentin 300mg - Nerve pain (Indian brand)', 17.99, 105, 1),
+            (2, 'Gabantin 400', 'Gabapentin 400mg - Nerve pain (Indian brand)', 19.99, 95, 1),
+            (2, 'Lyrica 75', 'Pregabalin 75mg - Nerve pain (Indian brand)', 24.99, 80, 1),
+            (2, 'Maxgalin 75', 'Pregabalin 75mg - Nerve pain (Indian brand)', 22.99, 85, 1),
+            (3, 'Stilnoct 10', 'Zolpidem 10mg - Insomnia (Indian brand)', 19.99, 105, 1),
+            (3', 'Imovane 7.5', 'Zopiclone 7.5mg - Insomnia (Indian brand)', 18.99, 100, 1),
+            (3, 'Zapiz 0.5', 'Clonazepam 0.5mg - Insomnia (Indian brand)', 12.99, 110, 1),
+            (4, 'Setraline 50', 'Sertraline 50mg - Depression (Indian brand)', 15.99, 120, 1),
+            (4, 'Zosert 50', 'Sertraline 50mg - Depression (Indian brand)', 16.99, 115, 1),
+            (4, 'Fludac 20', 'Fluoxetine 20mg - Depression (Indian brand)', 13.99, 130, 1),
+            (4, 'Pexep CR 12.5', 'Paroxetine CR - Depression (Indian brand)', 18.99, 95, 1),
+            (5, 'Voveran 50', 'Diclofenac 50mg - Pain (Indian brand)', 5.99, 140, 1),
+            (5, 'Voveran SR 100', 'Diclofenac SR - Pain (Indian brand)', 7.99, 125, 1),
+            (5, 'Dynapar', 'Diclofenac + Paracetamol - Pain (Indian brand)', 8.99, 120, 1),
+            (1, 'Hifenac P', 'Aceclofenac + Paracetamol - Pain (Indian brand)', 9.99, 115, 1),
+            (1, 'Myospaz', 'Chlorzoxazone + Diclofenac - Pain (Indian brand)', 11.99, 110, 1),
+            (2, 'Pan 40', 'Pantoprazole 40mg - Gastric (Indian brand)', 9.99, 130, 1),
+            (2, 'Gelusil MPS', 'Antacid - Gastric (Indian brand)', 7.99, 140, 1),
+            (2, 'Digene', 'Antacid - Gastric (Indian brand)', 8.49, 135, 1),
+            (2, 'Mucaine Gel', 'Antacid - Gastric (Indian brand)', 9.49, 125, 1),
+            (3, 'Flagyl 400', 'Metronidazole 400mg - Antibiotic (Indian brand)', 9.99, 120, 1),
+            (3, 'Metrogyl 400', 'Metronidazole 400mg - Antibiotic (Indian brand)', 10.99, 115, 1),
+            (3, 'Ornidazole 500', 'Ornidazole 500mg - Antibiotic (Indian brand)', 11.99, 110, 1),
+            (3, 'Oflox 200', 'Ofloxacin 200mg - Antibiotic (Indian brand)', 12.99, 105, 1),
+            (4, 'Udiliv 300', 'Ursodeoxycholic acid - Liver (Indian brand)', 18.99, 90, 1),
+            (4, 'Ursocol 300', 'Ursodeoxycholic acid - Liver (Indian brand)', 19.99, 85, 1),
+            (4, 'Silymarin 140', 'Liver support - Liver (Indian brand)', 14.99, 100, 1),
+            (4, 'Hepamerz', 'Liver support - Liver (Indian brand)', 16.99, 95, 1),
+            (5, 'Nasonex', 'Mometasone nasal spray - Allergy (Indian brand)', 22.99, 80, 1),
+            (5, 'Flomist', 'Fluticasone nasal spray - Allergy (Indian brand)', 20.99, 85, 1),
+            (5, 'Otrivin', 'Xylometazoline nasal drops - Nasal (Indian brand)', 8.99, 130, 1),
+            (5, 'Nasivin', 'Oxymetazoline nasal drops - Nasal (Indian brand)', 9.99, 125, 1),
         ]
         cursor.executemany('INSERT INTO medicines (pharmacy_id, name, description, price, stock_quantity, available) VALUES (?, ?, ?, ?, ?, ?)', medicines_data)
         
@@ -381,6 +461,39 @@ def get_doctors():
         cursor.execute('SELECT * FROM doctors WHERE available = 1')
         doctors = cursor.fetchall()
         return jsonify([dict(doc) for doc in doctors]), 200
+    finally:
+        conn.close()
+
+@app.route('/api/doctors/search', methods=['GET'])
+def search_doctors():
+    search_term = request.args.get('q', '')
+    specialization = request.args.get('specialization', '')
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        if search_term and specialization:
+            cursor.execute('SELECT * FROM doctors WHERE available = 1 AND (name LIKE ? OR specialization LIKE ?) AND specialization = ?', 
+                         (f'%{search_term}%', f'%{search_term}%', specialization))
+        elif search_term:
+            cursor.execute('SELECT * FROM doctors WHERE available = 1 AND (name LIKE ? OR specialization LIKE ?)', 
+                         (f'%{search_term}%', f'%{search_term}%'))
+        elif specialization:
+            cursor.execute('SELECT * FROM doctors WHERE available = 1 AND specialization = ?', (specialization,))
+        else:
+            cursor.execute('SELECT * FROM doctors WHERE available = 1')
+        doctors = cursor.fetchall()
+        return jsonify([dict(doc) for doc in doctors]), 200
+    finally:
+        conn.close()
+
+@app.route('/api/doctors/specializations', methods=['GET'])
+def get_specializations():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('SELECT DISTINCT specialization FROM doctors WHERE available = 1 ORDER BY specialization')
+        specializations = cursor.fetchall()
+        return jsonify([s[0] for s in specializations]), 200
     finally:
         conn.close()
 

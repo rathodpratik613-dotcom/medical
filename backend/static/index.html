@@ -115,6 +115,20 @@
         <section id="doctorsSection" class="section hidden">
             <div class="container">
                 <h2>Available Doctors</h2>
+                
+                <!-- Search and Filter -->
+                <div class="search-filter-container">
+                    <div class="search-box">
+                        <input type="text" id="doctorSearch" placeholder="Search doctors by name or specialization..." onkeypress="handleDoctorSearch(event)">
+                        <button onclick="searchDoctors()" class="btn btn-primary">🔍 Search</button>
+                    </div>
+                    <div class="filter-box">
+                        <select id="specializationFilter" onchange="filterDoctors()">
+                            <option value="">All Specializations</option>
+                        </select>
+                    </div>
+                </div>
+                
                 <div id="doctorsList" class="doctors-grid">
                     <!-- Doctors will be loaded here -->
                 </div>
