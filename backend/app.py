@@ -354,7 +354,7 @@ def init_db():
             (2, 'Lyrica 75', 'Pregabalin 75mg - Nerve pain (Indian brand)', 24.99, 80, 1),
             (2, 'Maxgalin 75', 'Pregabalin 75mg - Nerve pain (Indian brand)', 22.99, 85, 1),
             (3, 'Stilnoct 10', 'Zolpidem 10mg - Insomnia (Indian brand)', 19.99, 105, 1),
-            (3', 'Imovane 7.5', 'Zopiclone 7.5mg - Insomnia (Indian brand)', 18.99, 100, 1),
+            (3, 'Imovane 7.5', 'Zopiclone 7.5mg - Insomnia (Indian brand)', 18.99, 100, 1),
             (3, 'Zapiz 0.5', 'Clonazepam 0.5mg - Insomnia (Indian brand)', 12.99, 110, 1),
             (4, 'Setraline 50', 'Sertraline 50mg - Depression (Indian brand)', 15.99, 120, 1),
             (4, 'Zosert 50', 'Sertraline 50mg - Depression (Indian brand)', 16.99, 115, 1),
