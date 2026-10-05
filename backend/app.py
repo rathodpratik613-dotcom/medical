@@ -236,7 +236,7 @@ def init_db():
         ]
         cursor.executemany('INSERT INTO pharmacies (name, address, phone, email, operating_hours) VALUES (?, ?, ?, ?, ?)', pharmacies_data)
         
-        # Insert medicines (sample of 20 most common ones)
+        # Insert medicines (sample of 30 including Indian medicines)
         medicines_data = [
             (1, 'Paracetamol 500mg', 'Pain reliever and fever reducer', 5.99, 150, 1),
             (1, 'Ibuprofen 400mg', 'Anti-inflammatory pain reliever', 7.99, 120, 1),
@@ -268,6 +268,39 @@ def init_db():
             (5, 'Orlistat 120mg', 'Lipase inhibitor for weight loss', 45.99, 80, 1),
             (5, 'Isotretinoin 20mg', 'Retinoid for severe acne', 45.99, 55, 1),
             (5, 'Tretinoin 0.025% Cream', 'Retinoid for acne and anti-aging', 28.99, 85, 1),
+            # Indian Medicines
+            (1, 'Dolo 650', 'Paracetamol 650mg - Pain and fever relief (Indian brand)', 2.99, 200, 1),
+            (1, 'Crocin 500mg', 'Paracetamol - Pain reliever (Indian brand)', 3.49, 180, 1),
+            (1, 'Combiflam', 'Ibuprofen + Paracetamol - Pain relief (Indian brand)', 4.99, 150, 1),
+            (1, 'Volini Gel', 'Diclofenac gel - Pain relief (Indian brand)', 6.99, 120, 1),
+            (2, 'Augmentin 625', 'Amoxicillin + Clavulanic acid - Antibiotic (Indian brand)', 14.99, 90, 1),
+            (2, 'Azee 500', 'Azithromycin 500mg - Antibiotic (Indian brand)', 18.99, 70, 1),
+            (2, 'Cifran 500', 'Ciprofloxacin 500mg - Antibiotic (Indian brand)', 15.99, 85, 1),
+            (2, 'Omee 20', 'Omeprazole 20mg - Acid reflux (Indian brand)', 7.99, 140, 1),
+            (2, 'Pantocid 40', 'Pantoprazole 40mg - Acid reflux (Indian brand)', 10.99, 110, 1),
+            (3, 'Glycomet 500', 'Metformin 500mg - Diabetes (Indian brand)', 12.99, 160, 1),
+            (3, 'Glycomet GP1', 'Metformin + Glimepiride - Diabetes (Indian brand)', 18.99, 90, 1),
+            (3, 'Janumet 50/500', 'Sitagliptin + Metformin - Diabetes (Indian brand)', 24.99, 75, 1),
+            (3, 'Telma 40', 'Telmisartan 40mg - Blood pressure (Indian brand)', 13.99, 130, 1),
+            (3, 'Amlong 5', 'Amlodipine 5mg - Blood pressure (Indian brand)', 11.99, 145, 1),
+            (4, 'Atorva 10', 'Atorvastatin 10mg - Cholesterol (Indian brand)', 17.99, 100, 1),
+            (4, 'Roseday 10', 'Rosuvastatin 10mg - Cholesterol (Indian brand)', 22.99, 85, 1),
+            (4, 'Ecosprin 75', 'Aspirin 75mg - Heart protection (Indian brand)', 4.49, 180, 1),
+            (4, 'Clopitab 75', 'Clopidogrel 75mg - Heart protection (Indian brand)', 16.99, 110, 1),
+            (5, 'Foracort 200', 'Budesonide + Formoterol - Asthma (Indian brand)', 28.99, 80, 1),
+            (5, 'Seroflo 250', 'Fluticasone + Salmeterol - Asthma (Indian brand)', 32.99, 70, 1),
+            (5, 'Allegra 120', 'Fexofenadine 120mg - Allergy (Indian brand)', 12.99, 130, 1),
+            (5, 'Cetcip 10', 'Cetirizine 10mg - Allergy (Indian brand)', 7.49, 160, 1),
+            (1, 'Thyronorm 50mcg', 'Levothyroxine 50mcg - Thyroid (Indian brand)', 11.99, 150, 1),
+            (1, 'Eltroxin 50mcg', 'Levothyroxine 50mcg - Thyroid (Indian brand)', 13.99, 120, 1),
+            (2, 'Neuropill 300', 'Gabapentin 300mg - Nerve pain (Indian brand)', 18.99, 100, 1),
+            (2, 'Gabanext 300', 'Gabapentin 300mg - Nerve pain (Indian brand)', 19.99, 95, 1),
+            (3, 'Zolfresh 10', 'Zolpidem 10mg - Insomnia (Indian brand)', 18.99, 110, 1),
+            (3, 'Nitrest 10', 'Zolpidem 10mg - Insomnia (Indian brand)', 17.99, 105, 1),
+            (4, 'Serta 50', 'Sertraline 50mg - Depression (Indian brand)', 15.99, 125, 1),
+            (4, 'Depsert 50', 'Sertraline 50mg - Depression (Indian brand)', 16.99, 115, 1),
+            (5, 'Nise 100', 'Nimesulide 100mg - Pain relief (Indian brand)', 5.99, 140, 1),
+            (5, 'Sumo 100', 'Nimesulide 100mg - Pain relief (Indian brand)', 6.49, 135, 1),
         ]
         cursor.executemany('INSERT INTO medicines (pharmacy_id, name, description, price, stock_quantity, available) VALUES (?, ?, ?, ?, ?, ?)', medicines_data)
         
