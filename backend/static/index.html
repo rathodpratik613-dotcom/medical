@@ -155,9 +155,13 @@
         <section id="medicinesSection" class="section hidden">
             <div class="container">
                 <h2>Find Medicines</h2>
+                <div class="currency-toggle">
+                    <button onclick="setCurrency('inr')" class="currency-btn active" id="inrBtn">₹ INR</button>
+                    <button onclick="setCurrency('usd')" class="currency-btn" id="usdBtn">$ USD</button>
+                </div>
                 <div class="search-box">
-                    <input type="text" id="medicineSearch" placeholder="Search for medicines...">
-                    <button onclick="searchMedicines()" class="btn btn-primary">Search</button>
+                    <input type="text" id="medicineSearch" placeholder="Search for medicines..." onkeypress="handleMedicineSearch(event)">
+                    <button onclick="searchMedicines()" class="btn btn-primary">🔍 Search</button>
                 </div>
                 <div id="medicinesList" class="medicines-grid">
                     <!-- Medicines will be loaded here -->

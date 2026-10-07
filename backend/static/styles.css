@@ -341,6 +341,35 @@ body {
     font-size: 1rem;
 }
 
+/* Currency Toggle */
+.currency-toggle {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.currency-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.currency-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.currency-btn.active {
+    background: #667eea;
+    color: white;
+}
+
 /* Medicines Grid */
 .medicines-grid {
     display: grid;

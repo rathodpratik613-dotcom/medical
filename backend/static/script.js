@@ -1,8 +1,47 @@
 // API Base URL
 const API_URL = '/api';
 
+// Currency conversion rate (approximate)
+const USD_TO_INR = 83.50;
+const INR_TO_USD = 1 / USD_TO_INR;
+
 // Current user state
 let currentUser = null;
+let currentCurrency = 'inr'; // 'inr' or 'usd'
+
+// Convert INR to USD
+function inrToUsd(inrPrice) {
+    return (inrPrice * INR_TO_USD).toFixed(2);
+}
+
+// Format price based on selected currency
+function formatPrice(inrPrice) {
+    if (currentCurrency === 'inr') {
+        const usdPrice = inrToUsd(inrPrice);
+        return `₹${inrPrice.toFixed(2)} ($${usdPrice})`;
+    } else {
+        const usdPrice = inrToUsd(inrPrice);
+        return `$${usdPrice} (₹${inrPrice.toFixed(2)})`;
+    }
+}
+
+// Set currency
+function setCurrency(currency) {
+    currentCurrency = currency;
+    
+    // Update button styles
+    document.getElementById('inrBtn').classList.remove('active');
+    document.getElementById('usdBtn').classList.remove('active');
+    document.getElementById(`${currency}Btn`).classList.add('active');
+    
+    // Reload medicines to update prices
+    const searchTerm = document.getElementById('medicineSearch').value;
+    if (searchTerm.trim()) {
+        searchMedicines();
+    } else {
+        loadMedicines();
+    }
+}
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,21 +61,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Setup form event listeners
 function setupFormListeners() {
     // Login form
-    document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
     
     // Register form
-    document.getElementById('registerForm').addEventListener('submit', handleRegister);
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', handleRegister);
+    }
     
     // Consultation form
-    document.getElementById('consultationForm').addEventListener('submit', handleConsultation);
-    
-    // Medicine search on Enter key
-    document.getElementById('medicineSearch').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            searchMedicines();
-        }
-    });
+    const consultationForm = document.getElementById('consultationForm');
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', handleConsultation);
+    }
 }
 
 // Toggle between login and register
@@ -350,6 +390,7 @@ async function loadMedicines() {
         if (pharmacies.length > 0) {
             const medResponse = await fetch(`${API_URL}/pharmacies/${pharmacies[0].id}/medicines`);
             const medicines = await medResponse.json();
+            window.currentMedicines = medicines; // Store for currency toggle
             displayMedicines(medicines);
         }
     } catch (error) {
@@ -370,10 +411,19 @@ async function searchMedicines() {
     try {
         const response = await fetch(`${API_URL}/medicines/search?q=${encodeURIComponent(searchTerm)}`);
         const medicines = await response.json();
+        window.currentMedicines = medicines; // Store for currency toggle
         displayMedicines(medicines);
     } catch (error) {
         console.error('Error searching medicines:', error);
         document.getElementById('medicinesList').innerHTML = '<p>Error searching medicines. Please try again.</p>';
+    }
+}
+
+// Handle medicine search on Enter key
+function handleMedicineSearch(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        searchMedicines();
     }
 }
 
@@ -393,7 +443,7 @@ function displayMedicines(medicines) {
         card.innerHTML = `
             <h3>${medicine.name}</h3>
             <p>${medicine.description || 'No description available'}</p>
-            <p class="price">$${medicine.price}</p>
+            <p class="price">${formatPrice(medicine.price)}</p>
             <p class="pharmacy">Available at: ${medicine.pharmacy_name}</p>
             <p class="pharmacy">📍 ${medicine.pharmacy_address}</p>
             <p class="pharmacy">📞 ${medicine.pharmacy_phone}</p>
@@ -432,6 +482,7 @@ async function loadConsultations() {
                 <p><strong>Symptoms:</strong> ${consultation.symptoms}</p>
                 <p><strong>Status:</strong> <span class="status ${consultation.status}">${consultation.status.replace('_', ' ')}</span></p>
                 ${consultation.diagnosis ? `<p><strong>Diagnosis:</strong> ${consultation.diagnosis}</p>` : ''}
+                ${consultation.status === 'completed' ? `<button onclick="scheduleFollowup(${consultation.id}, ${consultation.doctor_id}, '${consultation.doctor_name}')" class="btn btn-success" style="margin-top: 0.5rem;">Schedule Follow-up</button>` : ''}
             `;
             consultationsList.appendChild(card);
         });
@@ -500,4 +551,47 @@ async function completeFollowup(followupId) {
         console.error('Error completing follow-up:', error);
         alert('Error updating follow-up. Please try again.');
     }
+}
+
+// Schedule follow-up from consultation
+function scheduleFollowup(consultationId, doctorId, doctorName) {
+    if (!currentUser) {
+        alert('Please login to schedule a follow-up');
+        showSection('login');
+        return;
+    }
+    
+    const scheduledDate = prompt('Enter follow-up date (YYYY-MM-DD):');
+    if (!scheduledDate) return;
+    
+    const notes = prompt('Enter any notes (optional):') || '';
+    
+    const followupData = {
+        consultation_id: consultationId,
+        patient_id: currentUser.id,
+        doctor_id: doctorId,
+        scheduled_date: scheduledDate,
+        notes: notes
+    };
+    
+    fetch(`${API_URL}/followups`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(followupData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            alert('Follow-up scheduled successfully!');
+            loadFollowups();
+        } else {
+            alert(data.error || 'Failed to schedule follow-up');
+        }
+    })
+    .catch(error => {
+        console.error('Error scheduling follow-up:', error);
+        alert('Error scheduling follow-up. Please try again.');
+    });
 }
