@@ -1,4 +1,5 @@
 services:
+  # Backend Web Service
   - type: web
     name: telemedicine-backend
     runtime: python
@@ -7,4 +8,11 @@ services:
     envVars:
       - key: PORT
         value: 5000
+    plan: free
+
+  # Frontend Static Site
+  - type: site
+    name: telemedicine-frontend
+    buildCommand: ""
+    publishDir: frontend
     plan: free

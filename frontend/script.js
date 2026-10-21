@@ -1,5 +1,7 @@
-// API Base URL
-const API_URL = 'http://localhost:5000/api';
+// API Base URL - Automatically detects localhost vs production (Render)
+const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : 'https://telemedicine-backend.onrender.com/api';
 
 // Current user state
 let currentUser = null;
