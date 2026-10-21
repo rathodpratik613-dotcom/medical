@@ -16,6 +16,11 @@ A comprehensive telemedicine solution connecting patients with remote doctors, i
 - **Backend**: Python + Flask
 - **Database**: SQLite (built into Python, no separate installation needed!)
 
+## Documentation
+
+- **ER Diagram**: See [ER_DIAGRAM.md](ER_DIAGRAM.md) for complete database schema and relationships
+- **Deployment Guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions
+
 ## Prerequisites
 
 - Python 3.8 or higher
