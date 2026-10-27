@@ -14,12 +14,20 @@ A comprehensive telemedicine solution connecting patients with remote doctors, i
 
 - **Frontend**: Plain HTML, CSS, JavaScript (no frameworks required)
 - **Backend**: Python + Flask
-- **Database**: SQLite (built into Python, no separate installation needed!)
+- **Database**: MySQL or PostgreSQL (production-ready)
+
+### Database Options
+
+1. **MySQL** (default): Production-ready, widely used
+2. **PostgreSQL**: Recommended for Render free tier deployment
+3. **SQLite**: Available for local development (app_sqlite.py)
 
 ## Documentation
 
 - **ER Diagram**: See [ER_DIAGRAM.md](ER_DIAGRAM.md) for complete database schema and relationships
 - **Deployment Guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions
+- **Render Deployment**: See [RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md) for Render-specific deployment
+- **Local Setup**: See [LOCAL_SETUP.md](LOCAL_SETUP.md) for local development with MySQL
 
 ## Prerequisites
 
