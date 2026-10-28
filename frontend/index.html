@@ -11,11 +11,15 @@
         <!-- Navigation -->
         <nav class="navbar">
             <div class="nav-container">
-                <h1 class="logo">🏥 TeleMedicine</h1>
+                <h1 class="logo">🏥 TeleMedicine India</h1>
                 <div class="nav-links" id="navLinks">
                     <a href="#" onclick="showSection('home')" class="nav-link">Home</a>
                     <a href="#" onclick="showSection('doctors')" class="nav-link">Find Doctors</a>
                     <a href="#" onclick="showSection('medicines')" class="nav-link">Medicines</a>
+                    <a href="#" onclick="showSection('emergency')" class="nav-link">Emergency</a>
+                    <a href="#" onclick="showSection('labtests')" class="nav-link">Lab Tests</a>
+                    <a href="#" onclick="showSection('video')" class="nav-link">Video Call</a>
+                    <a href="#" onclick="showSection('blog')" class="nav-link">Health Blog</a>
                     <a href="#" onclick="showSection('consultations')" class="nav-link">My Consultations</a>
                     <a href="#" onclick="showSection('followups')" class="nav-link">Follow-ups</a>
                     <a href="#" onclick="logout()" class="nav-link logout">Logout</a>
@@ -92,20 +96,55 @@
         <!-- Home Section -->
         <section id="homeSection" class="section hidden">
             <div class="hero">
-                <h2>Your Health, Our Priority</h2>
-                <p>Get medical advice from qualified doctors, find available medicines at local pharmacies, and manage your follow-ups digitally.</p>
+                <h2>🇮🇳 India's Premier Telemedicine Platform</h2>
+                <p>Access quality healthcare from anywhere in India. Connect with top doctors, find medicines at local pharmacies, book lab tests, and manage your health digitally.</p>
+                <div class="quick-actions">
+                    <button onclick="showSection('doctors')" class="btn btn-primary">Find a Doctor</button>
+                    <button onclick="showSection('emergency')" class="btn btn-danger">Emergency Services</button>
+                    <button onclick="showSection('labtests')" class="btn btn-secondary">Book Lab Test</button>
+                </div>
                 <div class="features">
                     <div class="feature-card">
-                        <h3>👨‍⚕️ Remote Consultations</h3>
-                        <p>Connect with doctors from anywhere</p>
+                        <h3>👨‍⚕️ 24/7 Doctor Consultation</h3>
+                        <p>Connect with 100+ qualified Indian doctors anytime</p>
                     </div>
                     <div class="feature-card">
-                        <h3>💊 Medicine Availability</h3>
-                        <p>Find medicines at nearby pharmacies</p>
+                        <h3>💊 Medicine Delivery</h3>
+                        <p>Find medicines at pharmacies across India</p>
                     </div>
                     <div class="feature-card">
-                        <h3>📅 Digital Follow-ups</h3>
-                        <p>Never miss your appointments</p>
+                        <h3>🚑 Emergency Services</h3>
+                        <p>Ambulance & emergency contacts across India</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>� Lab Tests & Diagnostics</h3>
+                        <p>Book tests at trusted diagnostic centers</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📹 Video Consultations</h3>
+                        <p>Face-to-face video calls with specialists</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📰 Health Blog</h3>
+                        <p>Latest health tips and medical news</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>Qualified Doctors</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Pharmacies</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>Medicines</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Support</p>
                     </div>
                 </div>
             </div>
@@ -147,6 +186,289 @@
                 </div>
                 <div id="medicinesList" class="medicines-grid">
                     <!-- Medicines will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Services Section -->
+        <section id="emergencySection" class="section hidden">
+            <div class="container">
+                <h2>🚑 Emergency Services</h2>
+                <div class="emergency-grid">
+                    <div class="emergency-card urgent">
+                        <h3>National Emergency Number</h3>
+                        <p class="emergency-number">112</p>
+                        <p>Call for police, fire, or medical emergencies</p>
+                        <a href="tel:112" class="btn btn-danger">Call Now</a>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>Ambulance Services</h3>
+                        <p class="emergency-number">108</p>
+                        <p>24/7 ambulance service across India</p>
+                        <a href="tel:108" class="btn btn-danger">Call Now</a>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>Women Helpline</h3>
+                        <p class="emergency-number">181</p>
+                        <p>24/7 women safety helpline</p>
+                        <a href="tel:181" class="btn btn-primary">Call Now</a>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>Child Helpline</h3>
+                        <p class="emergency-number">1098</p>
+                        <p>24/7 child protection helpline</p>
+                        <a href="tel:1098" class="btn btn-primary">Call Now</a>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>Mental Health Helpline</h3>
+                        <p class="emergency-number">011-23381030</p>
+                        <p>24/7 mental health support</p>
+                        <a href="tel:01123381030" class="btn btn-primary">Call Now</a>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>Air Ambulance</h3>
+                        <p class="emergency-number">9540161344</p>
+                        <p>Emergency air ambulance service</p>
+                        <a href="tel:9540161344" class="btn btn-secondary">Call Now</a>
+                    </div>
+                </div>
+                <div class="emergency-tips">
+                    <h3>Emergency Tips</h3>
+                    <ul>
+                        <li>Stay calm and assess the situation</li>
+                        <li>Call the appropriate emergency number immediately</li>
+                        <li>Provide clear information about your location</li>
+                        <li>Follow the dispatcher's instructions</li>
+                        <li>Keep first aid kit ready at home</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Tests Section -->
+        <section id="labtestsSection" class="section hidden">
+            <div class="container">
+                <h2>🔬 Lab Tests & Diagnostics</h2>
+                <div class="lab-tests-grid">
+                    <div class="lab-card">
+                        <h3>Complete Blood Count (CBC)</h3>
+                        <p>Full blood analysis including RBC, WBC, platelets</p>
+                        <p class="price">₹350</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Blood Sugar Test</h3>
+                        <p>Fasting and post-prandial blood sugar levels</p>
+                        <p class="price">₹150</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Lipid Profile</h3>
+                        <p>Cholesterol, triglycerides, HDL, LDL</p>
+                        <p class="price">₹450</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Thyroid Function Test</h3>
+                        <p>T3, T4, TSH levels</p>
+                        <p class="price">₹400</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Liver Function Test</h3>
+                        <p>Complete liver health analysis</p>
+                        <p class="price">₹500</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Kidney Function Test</h3>
+                        <p>Complete kidney health analysis</p>
+                        <p class="price">₹450</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Urine Analysis</h3>
+                        <p>Complete urine examination</p>
+                        <p class="price">₹150</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Vitamin D Test</h3>
+                        <p>25-hydroxy vitamin D levels</p>
+                        <p class="price">₹600</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                    <div class="lab-card">
+                        <h3>Vitamin B12 Test</h3>
+                        <p>Vitamin B12 levels</p>
+                        <p class="price">₹550</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+                <div class="diagnostic-centers">
+                    <h3>Partner Diagnostic Centers</h3>
+                    <div class="center-item">
+                        <h4>Dr. Lal PathLabs</h4>
+                        <p>Available across India</p>
+                        <p class="rating">⭐⭐⭐⭐⭐ 4.5/5</p>
+                    </div>
+                    <div class="center-item">
+                        <h4>Thyrocare</h4>
+                        <p>Available across India</p>
+                        <p class="rating">⭐⭐⭐⭐⭐ 4.3/5</p>
+                    </div>
+                    <div class="center-item">
+                        <h4>Metropolis Healthcare</h4>
+                        <p>Available across India</p>
+                        <p class="rating">⭐⭐⭐⭐⭐ 4.4/5</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Consultation Section -->
+        <section id="videoSection" class="section hidden">
+            <div class="container">
+                <h2>📹 Video Consultation</h2>
+                <div class="video-container">
+                    <div class="video-info">
+                        <h3>Connect Face-to-Face with Doctors</h3>
+                        <p>Experience high-quality video consultations with our network of specialists across India. Discuss your health concerns from the comfort of your home.</p>
+                        <div class="video-features">
+                            <div class="v-feature">
+                                <h4>HD Video Quality</h4>
+                                <p>Crystal clear video consultations</p>
+                            </div>
+                            <div class="v-feature">
+                                <h4>Screen Sharing</h4>
+                                <p>Share reports and test results</p>
+                            </div>
+                            <div class="v-feature">
+                                <h4>Chat & File Transfer</h4>
+                                <p>Send documents during consultation</p>
+                            </div>
+                            <div class="v-feature">
+                                <h4>Secure & Private</h4>
+                                <p>End-to-end encrypted calls</p>
+                            </div>
+                        </div>
+                        <button onclick="startVideoCall()" class="btn btn-primary">Start Video Call</button>
+                    </div>
+                    <div class="video-demo">
+                        <div class="demo-placeholder">
+                            <div class="demo-doctor">
+                                <div class="doctor-avatar">👨‍⚕️</div>
+                                <p>Dr. Sharma</p>
+                            </div>
+                            <div class="demo-patient">
+                                <div class="patient-avatar">👤</div>
+                                <p>You</p>
+                            </div>
+                            <div class="demo-status">Ready to connect</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-doctors">
+                    <h3>Available for Video Consultation</h3>
+                    <div class="v-doctor-card">
+                        <h4>Dr. Rajesh Kumar</h4>
+                        <p>General Physician • 25 years exp</p>
+                        <p class="availability">Available Now</p>
+                        <button class="btn btn-primary">Book ₹500</button>
+                    </div>
+                    <div class="v-doctor-card">
+                        <h4>Dr. Maria Garcia</h4>
+                        <p>Cardiologist • 18 years exp</p>
+                        <p class="availability">Available Now</p>
+                        <button class="btn btn-primary">Book ₹800</button>
+                    </div>
+                    <div class="v-doctor-card">
+                        <h4>Dr. Sarah Ahmed</h4>
+                        <p>Pediatrician • 15 years exp</p>
+                        <p class="availability">Available Now</p>
+                        <button class="btn btn-primary">Book ₹600</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Blog Section -->
+        <section id="blogSection" class="section hidden">
+            <div class="container">
+                <h2>📰 Health Blog</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">🏃</div>
+                        <div class="blog-content">
+                            <h3>10 Tips for a Healthy Lifestyle</h3>
+                            <p>Simple daily habits that can transform your health and well-being...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">Jan 15, 2025</span>
+                                <span class="blog-category">Wellness</span>
+                            </div>
+                            <button class="btn btn-secondary">Read More</button>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">🥗</div>
+                        <div class="blog-content">
+                            <h3>Superfoods for Indian Diet</h3>
+                            <p>Discover nutritious Indian foods that boost immunity and energy...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">Jan 12, 2025</span>
+                                <span class="blog-category">Nutrition</span>
+                            </div>
+                            <button class="btn btn-secondary">Read More</button>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">😴</div>
+                        <div class="blog-content">
+                            <h3>Importance of Quality Sleep</h3>
+                            <p>How adequate sleep affects your physical and mental health...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">Jan 10, 2025</span>
+                                <span class="blog-category">Wellness</span>
+                            </div>
+                            <button class="btn btn-secondary">Read More</button>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">🧘</div>
+                        <div class="blog-content">
+                            <h3>Yoga for Stress Relief</h3>
+                            <p>Simple yoga poses to reduce stress and improve mental clarity...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">Jan 8, 2025</span>
+                                <span class="blog-category">Fitness</span>
+                            </div>
+                            <button class="btn btn-secondary">Read More</button>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">💪</div>
+                        <div class="blog-content">
+                            <h3>Home Workout Guide</h3>
+                            <p>Effective exercises you can do at home without equipment...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">Jan 5, 2025</span>
+                                <span class="blog-category">Fitness</span>
+                            </div>
+                            <button class="btn btn-secondary">Read More</button>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">🧠</div>
+                        <div class="blog-content">
+                            <h3>Mental Health Awareness</h3>
+                            <p>Understanding and managing anxiety and depression...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">Jan 3, 2025</span>
+                                <span class="blog-category">Mental Health</span>
+                            </div>
+                            <button class="btn btn-secondary">Read More</button>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

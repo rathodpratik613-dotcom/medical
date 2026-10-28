@@ -307,10 +307,12 @@ function displayMedicines(medicines) {
     medicines.forEach(medicine => {
         const card = document.createElement('div');
         card.className = 'medicine-card';
+        // Convert price to Indian Rupees (assuming $1 = ₹83)
+        const priceInINR = (medicine.price * 83).toFixed(2);
         card.innerHTML = `
             <h3>${medicine.name}</h3>
             <p>${medicine.description || 'No description available'}</p>
-            <p class="price">$${medicine.price}</p>
+            <p class="price">₹${priceInINR}</p>
             <p class="pharmacy">Available at: ${medicine.pharmacy_name}</p>
             <p class="pharmacy">📍 ${medicine.pharmacy_address}</p>
             <p class="pharmacy">📞 ${medicine.pharmacy_phone}</p>
@@ -417,4 +419,24 @@ async function completeFollowup(followupId) {
         console.error('Error completing follow-up:', error);
         alert('Error updating follow-up. Please try again.');
     }
+}
+
+// Start video call
+function startVideoCall() {
+    if (!currentUser) {
+        alert('Please login to start a video consultation');
+        showSection('login');
+        return;
+    }
+    alert('Video call feature coming soon! This will integrate with WebRTC for real-time video consultations.');
+}
+
+// Book lab test
+function bookLabTest(testName, price) {
+    if (!currentUser) {
+        alert('Please login to book a lab test');
+        showSection('login');
+        return;
+    }
+    alert(`Booking ${testName} for ₹${price}. This feature will be integrated with diagnostic centers.`);
 }
