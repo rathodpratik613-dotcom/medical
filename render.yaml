@@ -1,44 +1,13 @@
 services:
-  # MySQL Database
-  - type: pserv
-    name: telemedicine-mysql
-    runtime: mysql
-    plan: free
-    region: oregon
-    maxConnections: 10
-    ipAllowList: []
-
-  # Backend Web Service
+  # Backend Web Service (SQLite - No external database needed)
   - type: web
     name: telemedicine-backend
     runtime: python
     buildCommand: cd backend && pip install -r requirements.txt
-    startCommand: cd backend && python setup_database.py && python app.py
+    startCommand: cd backend && python app_sqlite.py
     envVars:
       - key: PORT
         value: 5000
-      - key: DB_HOST
-        fromService:
-          type: pserv
-          name: telemedicine-mysql
-          property: host
-      - key: DB_PORT
-        fromService:
-          type: pserv
-          name: telemedicine-mysql
-          property: port
-      - key: DB_USER
-        fromService:
-          type: pserv
-          name: telemedicine-mysql
-          property: user
-      - key: DB_PASSWORD
-        fromService:
-          type: pserv
-          name: telemedicine-mysql
-          property: password
-      - key: DB_NAME
-        value: telemedicine_db
     plan: free
 
   # Frontend Static Site
