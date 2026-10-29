@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory, send_file
 from flask_cors import CORS
 import sqlite3
 import datetime
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend', static_url_path='')
 CORS(app)
 
 # Database file path
@@ -513,6 +513,23 @@ def complete_followup(followup_id):
     finally:
         conn.close()
 
+# Serve frontend at root
+@app.route('/')
+def index():
+    return send_from_directory('../frontend', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory('../frontend', path)
+
 if __name__ == '__main__':
+    # Initialize database on startup
+    init_db()
     port = int(os.environ.get('PORT', 5000))
+    print("\n" + "="*60)
+    print("TELEMEDICINE PLATFORM - SQLite Backend + Frontend")
+    print("="*60)
+    print(f"Database: SQLite - {DB_PATH}")
+    print(f"Server running on: http://localhost:{port}")
+    print("="*60 + "\n")
     app.run(debug=False, host='0.0.0.0', port=port)

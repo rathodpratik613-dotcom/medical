@@ -1,21 +1,11 @@
 services:
-  # Backend Web Service (SQLite - No external database needed)
+  # Single Service: Backend + Frontend + SQLite Database
   - type: web
-    name: telemedicine-backend
+    name: telemedicine-platform
     runtime: python
     buildCommand: cd backend && pip install -r requirements.txt
     startCommand: cd backend && python app_sqlite.py
     envVars:
       - key: PORT
         value: 5000
-    plan: free
-
-  # Frontend Static Site
-  - type: site
-    name: telemedicine-frontend
-    buildCommand: ""
-    publishDir: frontend
-    envVars:
-      - key: API_URL
-        value: https://telemedicine-backend.onrender.com/api
     plan: free
